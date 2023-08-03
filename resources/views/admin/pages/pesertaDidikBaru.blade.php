@@ -45,7 +45,7 @@
                       <td>{{ $d['totalnilai']}}</td>
                       <td>
                       <a href="ppdb/terima/{{ $d['id'] }}"><button type="button" class="btn btn-outline-primary">Terima</button></a> 
-                      <!-- <a href="/tolak/{{ $d['id']}} "><button type="button" class="btn btn-outline-danger">Tolak</button></a> -->
+                      <a href="/tolak/{{ $d['id']}} "><button type="button" class="btn btn-outline-danger">Tolak</button></a>
 
                       </td>
                     </tr>

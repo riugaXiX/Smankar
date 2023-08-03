@@ -78,10 +78,25 @@ Route::any('/hapusguru/{id}',[GuruController::class,'destroy']);
 });
 
 
+Route::prefix('siswa')->middleware('IsLogin')->group(function(){
+ 
+    // Siswa 
+    Route::get('/',[SiswaController::class ,'index'])->middleware('IsLogin');
+
+    // tambah siswa 
+    Route::get('/tambahsiswa',[siswaController::class,'create']);
+    Route::post('/tambahsiswa',[siswaController::class,'store'])->name('siswa.tambah');
 
 
-// Siswa 
-Route::get('/siswa',[SiswaController::class ,'index'])->middleware('IsLogin');
+
+    // edit siswa 
+    Route::get('/editsiswa/{id}',[siswaController::class,'edit']);
+    Route::post('/updatesiswa/{id}',[siswaController::class,'update'])->name('siswa.edit');
+
+    // hapus siswa 
+    Route::any('/hapussiswa/{id}',[SiswaController::class,'destroy']);
+});
+
 
 // Login 
 Route::get('/login',['as' => 'login', 'uses' => 'LoginController@do',LoginController::class , 'index'])->middleware('guest')->name('login');

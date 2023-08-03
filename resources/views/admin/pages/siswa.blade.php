@@ -15,6 +15,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <a href="siswa/tambahsiswa"><button type="button" class="btn btn-primary mb-1">+ Tambah Data Siswa</button></a> 
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -36,9 +37,11 @@
                       <td>{{ $d['nmrSiswa'] }}</td>
                       <td>{{ $d['email'] }}</td>
                       <td>
-                      <a href=""><button type="button" class="btn btn-outline-primary">Edit</button></a> 
-                      <a href=""><button type="button" class="btn btn-outline-danger">Hapus</button></a> 
-
+                      <a href="/siswa/editsiswa/{{$d['id']}}"><button type="button" class="btn btn-outline-primary">Edit</button></a> 
+                      <form action="siswa/hapussiswa/{{ $d['id'] }}" method="post" onsubmit="return confirmDelete()">
+                           @csrf
+                           <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                        </form>
                       </td>
                     </tr>
                       
@@ -94,5 +97,11 @@
       "responsive": true,
     });
   });
+</script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this data?');
+    }
 </script>
 @endsection

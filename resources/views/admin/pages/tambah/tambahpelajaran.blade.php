@@ -9,7 +9,7 @@
 @section('konten')
 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Tambah data Guru</h3>
+                <h3 class="card-title">Tambah data pelajaran</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
